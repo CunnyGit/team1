@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field, constr
 
 
 class UserRegister(BaseModel):
-    user_id: constr(min_length=3, max_length=32, pattern=r"^[a-zA-Z0-9_\-]+$")
-    password: constr(min_length=8)
+    user_id: constr(min_length=3, max_length=32, pattern=r"^[a-zA-Z0-9_\-]+$") # type: ignore
+    password: constr(min_length=8) # type: ignore
 
 
 class UserLogin(BaseModel):
@@ -15,9 +15,9 @@ class UserLogin(BaseModel):
 
 
 class ProfileUpdate(BaseModel):
-    display_name: Optional[constr(min_length=1, max_length=64)] = None
+    display_name: Optional[constr(min_length=1, max_length=64)] = None # type: ignore
     icon_url: Optional[str] = None
-    bio: Optional[constr(max_length=280)] = None
+    bio: Optional[constr(max_length=280)] = None # type: ignore
 
 
 class UserProfile(BaseModel):
